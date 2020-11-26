@@ -1,0 +1,40 @@
+.header {
+  height: 42px;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+}
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  &__item {
+    position: relative;
+    flex-shrink: 0;
+    text-align: center;
+    padding-top: 8px;
+    height: 32px;
+    margin: 5px 30px 5px 0;
+    cursor: pointer;
+    &:hover {
+      color: $purple;
+      transition: $transition;
+    }
+    &::after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: -6px;
+      content: '';
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: $purple;
+      transition: width 0.2s ease 0s, left 0.2s ease 0s;
+      width: 0;
+    }
+    &--show::after {
+      width: 120%;
+      left: -8%;
+    }
+  }
+}

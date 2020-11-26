@@ -1,0 +1,52 @@
+*,
+*:before,
+*:after {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+  box-sizing: border-box;
+  appearance: none;
+  box-shadow: none;
+  outline: 0;
+  background: transparent;
+  border: 0;
+  border-style: solid;
+}
+body {
+  direction: rtl;
+  font-family: Open Sans;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+a {
+  text-decoration: none;
+}
+input[type='text'] {
+  width: 100%;
+  display: block;
+}
+textarea {
+  resize: none;
+}
+input::-ms-clear,
+input::-ms-reveal,
+select::-ms-expand {
+  display: none;
+}
+input[type='radio'] {
+  appearance: radio;
+}
+input[type='checkbox'] {
+  appearance: checkbox;
+}
+[placeholder]:empty:before {
+  content: attr(placeholder);
+}
