@@ -2,17 +2,21 @@
   height: 42px;
   border-radius: 5px;
   box-shadow: $box-shadow;
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 25px;
 }
 .navbar {
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: center;
   height: 100%;
   &__item {
-    position: relative;
     flex-shrink: 0;
+    font-size: 13px;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 4px;
     height: 32px;
     margin: 5px 30px 5px 0;
     cursor: pointer;
@@ -20,21 +24,63 @@
       color: $purple;
       transition: $transition;
     }
-    &::after {
-      background: none repeat scroll 0 0 transparent;
-      bottom: -6px;
-      content: '';
-      display: block;
-      height: 2px;
-      left: 50%;
-      position: absolute;
-      background: $purple;
-      transition: width 0.2s ease 0s, left 0.2s ease 0s;
-      width: 0;
-    }
-    &--show::after {
-      width: 120%;
-      left: -8%;
+    &:hover > .category__container {
+      color: initial;
     }
   }
+  &__underline {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    display: block;
+    height: 2px;
+    left: 100%;
+    position: absolute;
+    background: $purple;
+    transition: width 0.2s ease 0s, left 0.2s ease 0s;
+    transform: scaleX(0);
+  }
+  &__icon {
+    font-size: 16px;
+    position: relative;
+    top: 3px;
+    left: 1px;
+  }
+}
+.category {
+  cursor: default;
+  &:hover .category__container {
+    display: flex;
+  }
+  &__container {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__item {
+    cursor: pointer;
+    font-size: 25px;
+    margin: 0 18px;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.category__container {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  height: 200px;
+  width: 500px;
+  top: 37px;
+  left: 125px;
+  background-color: $white;
+  border-radius: 0 0 5px 5px;
+  box-shadow: $category-shadow;
+  z-index: 1;
 }

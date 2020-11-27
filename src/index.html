@@ -3,22 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="http://fonts.cdnfonts.com/css/iryekan" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>Project</title>
   </head>
   <body>
     <div class="main">
       <div class="header">
         <ul class="navbar">
-          <li class="navbar__item">دسته بندی</li>
-          <li class="navbar__item">ماشین حساب</li>
-          <li class="navbar__item">گالری نامحدود</li>
-          <li class="navbar__item">انیمیشن اسکرول</li>
-          <li class="navbar__item">فرم</li>
-          <li class="navbar__item">SVG</li>
-          <li class="navbar__item">فیلتر</li>
+          <div class="navbar__underline"></div>
+          <li class="navbar__item category">
+            <div class="navbar__heading">
+              <i class="bx bx-category navbar__icon"></i>
+              <span class="navbar__heading-title">دسته بندی</span>
+            </div>
+            <div class="category__container">
+              <ul class="category__list">
+                <li class="category__item">Webpack</li>
+                <li class="category__item">Javasct</li>
+                <li class="category__item">Sass</li>
+                <li class="category__item">BEM</li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar__item">
+            <div class="navbar__heading">
+              <i class="bx bx-images navbar__icon"></i>
+              <span class="navbar__heading-title">گالری نامحدود</span>
+            </div>
+          </li>
+          <li class="navbar__item">
+            <div class="navbar__heading">
+              <i class="bx bx-move-vertical navbar__icon"></i>
+              <span class="navbar__heading-title">انمیمیشن اسکرول</span>
+            </div>
+          </li>
+          <li class="navbar__item">
+            <div class="navbar__heading">
+              <i class="bx bx-spreadsheet navbar__icon"></i>
+              <span class="navbar__heading-title">فرم</span>
+            </div>
+          </li>
+          <li class="navbar__item">
+            <div class="navbar__heading">
+              <i class="bx bx-code navbar__icon"></i>
+              <span class="navbar__heading-title">SVG</span>
+            </div>
+          </li>
+          <li class="navbar__item">
+            <div class="navbar__heading">
+              <i class="bx bx-filter navbar__icon"></i>
+              <span class="navbar__heading-title">فیلتر</span>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="container"></div>
+      <div class="bottom-nav"><i class="bx bx-menu-alt-right"></i></div>
     </div>
   </body>
 </html>
