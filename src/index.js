@@ -16,3 +16,7 @@ $('.navbar__heading').hover(
     });
   }
 );
+
+$('.bottom-nav__icon').click(function () {
+  $('.bottom-nav__instagram').toggleClass('bottom-nav__instagram--up');
+});

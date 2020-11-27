@@ -1,0 +1,54 @@
+.bottom-nav {
+  $b-nav-selector: &;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  padding-right: 15px;
+  height: 50px;
+  bottom: 0;
+  &__icon {
+    cursor: pointer;
+    position: relative;
+    top: 9px;
+    right: -1px;
+    font-size: 21px;
+    transition: $transition-transform;
+    &:hover + #{$b-nav-selector}__contact-us {
+      transform: translateX(-5px);
+    }
+  }
+  &__contact-us {
+    transition: $transition-transform;
+    font-size: 12px;
+    width: 80px;
+    position: relative;
+    top: 8px;
+    margin-right: 3px;
+  }
+  &__social {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+  }
+  &__instagram {
+    transition: $transition-all;
+    top: 50px;
+    left: 7%;
+    position: relative;
+    &--up {
+      top: 8px;
+    }
+  }
+  &::before {
+    content: '';
+    display: inline-block;
+    background-color: $slow-gray;
+    height: 1px;
+    width: 80%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+}
