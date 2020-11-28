@@ -10,7 +10,7 @@
   &__icon {
     cursor: pointer;
     position: relative;
-    top: 9px;
+    top: 16px;
     right: -1px;
     font-size: 21px;
     transition: $transition-transform;
@@ -27,7 +27,7 @@
     font-size: 12px;
     width: 80px;
     position: relative;
-    top: 8px;
+    top: 15px;
     margin-right: 3px;
   }
   &__digikala-search {
@@ -44,6 +44,9 @@
     &:focus {
       border-bottom-color: $purple;
     }
+    &:focus ~ #{$b-nav-selector}__search-result {
+      left: 7px;
+    }
   }
   &__search-icon {
     font-size: 20px;
@@ -51,6 +54,35 @@
     cursor: pointer;
     top: 13px;
     left: 20px;
+  }
+  &__search-result {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    transition: $transition-all;
+    position: absolute;
+    height: 241px;
+    background-color: #fff;
+    box-shadow: $box-shadow-normal;
+    width: 353px;
+    top: -245px;
+    left: -400px;
+    border-radius: 15px;
+    &:hover {
+      left: 7px;
+    }
+  }
+  &__search-item {
+    width: 100%;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+    &:hover {
+      color: $purple;
+    }
   }
   &::before {
     content: '';

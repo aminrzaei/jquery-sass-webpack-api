@@ -15,7 +15,7 @@
       <div class="header">
         <ul class="navbar">
           <div class="navbar__underline"></div>
-          <li class="navbar__item category" data-lable="category">
+          <li class="navbar__item category" data-label="category">
             <div class="navbar__heading">
               <i class="bx bx-category navbar__icon"></i>
               <span class="navbar__heading-title">دسته بندی</span>
@@ -29,37 +29,37 @@
               </ul>
             </div>
           </li>
-          <li class="navbar__item" data-lable="gallery">
+          <li class="navbar__item" data-label="gallery">
             <div class="navbar__heading">
               <i class="bx bx-images navbar__icon"></i>
               <span class="navbar__heading-title">گالری نامحدود</span>
             </div>
           </li>
-          <li class="navbar__item" data-lable="scroll">
+          <li class="navbar__item" data-label="scroll">
             <div class="navbar__heading">
               <i class="bx bx-move-vertical navbar__icon"></i>
               <span class="navbar__heading-title">انمیمیشن اسکرول</span>
             </div>
           </li>
-          <li class="navbar__item" data-lable="form">
+          <li class="navbar__item" data-label="form">
             <div class="navbar__heading">
               <i class="bx bx-spreadsheet navbar__icon"></i>
               <span class="navbar__heading-title">فرم</span>
             </div>
           </li>
-          <li class="navbar__item" data-lable="svg">
+          <li class="navbar__item" data-label="svg">
             <div class="navbar__heading">
               <i class="bx bx-code navbar__icon"></i>
               <span class="navbar__heading-title">SVG</span>
             </div>
           </li>
-          <li class="navbar__item" data-lable="filter">
+          <li class="navbar__item" data-label="filter">
             <div class="navbar__heading">
               <i class="bx bx-filter navbar__icon"></i>
               <span class="navbar__heading-title">فیلتر</span>
             </div>
           </li>
-          <li class="navbar__item" data-lable="table">
+          <li class="navbar__item" data-label="table">
             <div class="navbar__heading">
               <i class="bx bx-table navbar__icon"></i>
               <span class="navbar__heading-title">جدول</span>
@@ -68,8 +68,18 @@
         </ul>
       </div>
       <div class="container">
-        <div class="container__item js-category">Category</div>
-        <div class="container__item js-gallery">Gallery</div>
+        <div class="container__item js-category">
+          <span class="js-category__letter">e</span>
+          <span class="js-category__letter">m</span>
+          <span class="js-category__letter">o</span>
+          <span class="js-category__letter">c</span>
+          <span class="js-category__letter">l</span>
+          <span class="js-category__letter">e</span>
+          <span class="js-category__letter">W</span>
+        </div>
+        <div class="container__item js-gallery">
+          <div class="gallery__container"></div>
+        </div>
         <div class="container__item js-scroll">Scroll</div>
         <div class="container__item js-form">Form</div>
         <div class="container__item js-svg">SVG</div>
@@ -88,6 +98,7 @@
             placeholder="جستجو در دیجیکالا ..."
           />
           <i class="bx bx-search bottom-nav__search-icon"></i>
+          <div class="bottom-nav__search-result"></div>
         </div>
       </div>
     </div>
