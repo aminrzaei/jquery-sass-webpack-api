@@ -2,6 +2,7 @@
   $b-nav-selector: &;
   position: fixed;
   width: 100%;
+  justify-content: space-between;
   display: flex;
   padding-right: 15px;
   height: 50px;
@@ -17,7 +18,11 @@
       transform: translateX(-5px);
     }
   }
-  &__contact-us {
+  &__contact {
+    display: flex;
+  }
+  &__contact-me {
+    cursor: pointer;
     transition: $transition-transform;
     font-size: 12px;
     width: 80px;
@@ -25,20 +30,27 @@
     top: 8px;
     margin-right: 3px;
   }
-  &__social {
+  &__digikala-search {
+    display: flex;
     position: relative;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
+    padding: 9px;
+    margin-left: 15px;
   }
-  &__instagram {
+  &__input {
+    height: 33px;
+    width: 350px;
+    border-bottom: 2px solid $dark;
     transition: $transition-all;
-    top: 50px;
-    left: 7%;
-    position: relative;
-    &--up {
-      top: 8px;
+    &:focus {
+      border-bottom-color: $purple;
     }
+  }
+  &__search-icon {
+    font-size: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: 13px;
+    left: 20px;
   }
   &::before {
     content: '';

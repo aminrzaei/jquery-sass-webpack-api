@@ -28,6 +28,10 @@
     &:hover > .category__container {
       color: initial;
     }
+    &--active {
+      color: $purple;
+      transition: $transition-all;
+    }
   }
   &__underline {
     background: none repeat scroll 0 0 transparent;
@@ -48,8 +52,9 @@
   }
 }
 .category {
-  cursor: default;
+  cursor: pointer;
   &:hover .category__container {
+    cursor: default;
     display: flex;
   }
   &__container {
@@ -79,8 +84,8 @@
   height: 200px;
   width: 500px;
   top: 37px;
-  left: 125px;
+  left: 194px;
   background-color: $white;
   border-radius: 0 0 5px 5px;
-  box-shadow: $category-shadow;
+  box-shadow: $box-shadow-low;
 }

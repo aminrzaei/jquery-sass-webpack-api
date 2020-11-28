@@ -17,6 +17,21 @@ $('.navbar__heading').hover(
   }
 );
 
-$('.bottom-nav__icon').click(function () {
-  $('.bottom-nav__instagram').toggleClass('bottom-nav__instagram--up');
+$('.bottom-nav__icon , .bottom-nav__contact-me').click(function (e) {
+  $('.drawer').addClass('drawer--open');
+});
+$('.drawer__closer').click(function (e) {
+  $('.drawer').removeClass('drawer--open');
+});
+
+$('.navbar__item').click(function () {
+  const lable = $(this).data('lable');
+  $('.navbar__item').not(this).css('color', 'initial');
+  $(this).css('color', '#6b11c0');
+  $('.container__item').css('display', 'none');
+  $(`.js-${lable}`).css('display', 'flex');
+});
+
+$('.bottom-nav__input').on('change paste keyup', function () {
+  console.log($(this).val());
 });

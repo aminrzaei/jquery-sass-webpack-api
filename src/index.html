@@ -15,7 +15,7 @@
       <div class="header">
         <ul class="navbar">
           <div class="navbar__underline"></div>
-          <li class="navbar__item category">
+          <li class="navbar__item category" data-lable="category">
             <div class="navbar__heading">
               <i class="bx bx-category navbar__icon"></i>
               <span class="navbar__heading-title">دسته بندی</span>
@@ -29,69 +29,74 @@
               </ul>
             </div>
           </li>
-          <li class="navbar__item">
+          <li class="navbar__item" data-lable="gallery">
             <div class="navbar__heading">
               <i class="bx bx-images navbar__icon"></i>
               <span class="navbar__heading-title">گالری نامحدود</span>
             </div>
           </li>
-          <li class="navbar__item">
+          <li class="navbar__item" data-lable="scroll">
             <div class="navbar__heading">
               <i class="bx bx-move-vertical navbar__icon"></i>
               <span class="navbar__heading-title">انمیمیشن اسکرول</span>
             </div>
           </li>
-          <li class="navbar__item">
+          <li class="navbar__item" data-lable="form">
             <div class="navbar__heading">
               <i class="bx bx-spreadsheet navbar__icon"></i>
               <span class="navbar__heading-title">فرم</span>
             </div>
           </li>
-          <li class="navbar__item">
+          <li class="navbar__item" data-lable="svg">
             <div class="navbar__heading">
               <i class="bx bx-code navbar__icon"></i>
               <span class="navbar__heading-title">SVG</span>
             </div>
           </li>
-          <li class="navbar__item">
+          <li class="navbar__item" data-lable="filter">
             <div class="navbar__heading">
               <i class="bx bx-filter navbar__icon"></i>
               <span class="navbar__heading-title">فیلتر</span>
             </div>
           </li>
+          <li class="navbar__item" data-lable="table">
+            <div class="navbar__heading">
+              <i class="bx bx-table navbar__icon"></i>
+              <span class="navbar__heading-title">جدول</span>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="container">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, tenetur
-        doloremque! Suscipit praesentium perferendis velit vel cupiditate eius
-        ducimus sapiente dolorum cumque, quasi iste voluptate similique nulla
-        maiores modi tempore, eveniet id. Consequatur necessitatibus deserunt a
-        optio, commodi rem eum voluptates quae quia dicta itaque expedita
-        excepturi debitis in earum accusamus ducimus, maxime explicabo, atque
-        est quisquam sapiente harum quam aperiam? Ipsa officia porro soluta eum
-        veniam repudiandae deleniti commodi iste, atque voluptates magni minima
-        placeat architecto culpa accusamus quidem nemo neque repellendus velit
-        facilis est quis? Sint perspiciatis quaerat deleniti libero aliquam
-        accusamus voluptates earum quae itaque nulla accusantium quibusdam eaque
-        tenetur culpa, sunt quos dignissimos dolorem, nobis possimus est rerum
-        neque. Omnis nostrum magni hic tempora perspiciatis provident, error
-        veniam. Quis labore amet modi nesciunt, debitis laborum possimus vitae
-        voluptatibus architecto aspernatur dignissimos tenetur atque voluptatum
-        eligendi nam at est, eveniet distinctio. Dicta amet magni, numquam sit
-        odio praesentium a quidem reiciendis pariatur quasi fugiat quam totam
-        vero neque quibusdam dolorum aliquam maxime corrupti soluta. Quidem quia
-        adipisci nam perspiciatis illo? Illum qui officia quae laborum aliquam
-        culpa nihil, ab nobis, quam dolor eaque distinctio repellendus dolores
-        aspernatur at suscipit accusantium! Iusto, et. Tempore aliquid quidem
-        aspernatur exercitationem?
+        <div class="container__item js-category">Category</div>
+        <div class="container__item js-gallery">Gallery</div>
+        <div class="container__item js-scroll">Scroll</div>
+        <div class="container__item js-form">Form</div>
+        <div class="container__item js-svg">SVG</div>
+        <div class="container__item js-filter">Filter</div>
+        <div class="container__item js-table">Table</div>
       </div>
       <div class="bottom-nav">
-        <i class="bx bx-menu-alt-right bottom-nav__icon"></i>
-        <p class="bottom-nav__contact-us">ارتباط با ما</p>
-        <div class="bottom-nav__social">
-          <div class="bottom-nav__instagram">اینستاگرام ما</div>
+        <div class="bottom-nav__contact">
+          <i class="bx bx-menu-alt-right bottom-nav__icon"></i>
+          <p class="bottom-nav__contact-me">ارتباط با من</p>
+        </div>
+        <div class="bottom-nav__digikala-search">
+          <input
+            class="bottom-nav__input"
+            type="text"
+            placeholder="جستجو در دیجیکالا ..."
+          />
+          <i class="bx bx-search bottom-nav__search-icon"></i>
         </div>
       </div>
+    </div>
+    <div class="drawer">
+      <div class="drawer__header">شبکه های اجتماعی من:</div>
+      <div class="drawer__closer"><i class="bx bx-menu-alt-right"></i></div>
+      <div class="drawer__item">Instagram <i class="bx bxl-instagram"></i></div>
+      <div class="drawer__item">Telegram <i class="bx bxl-telegram"></i></div>
+      <div class="drawer__item">Twitter <i class="bx bxl-twitter"></i></div>
     </div>
   </body>
 </html>

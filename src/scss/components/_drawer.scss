@@ -1,0 +1,49 @@
+.drawer {
+  color: $white;
+  top: 65px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  left: -250px;
+  height: 230px;
+  border-radius: 0 10px 10px 0;
+  width: 250px;
+  background-color: $dark;
+  position: absolute;
+  box-shadow: $box-shadow-low;
+  transition: $transition-all;
+  &--open {
+    left: 0;
+  }
+  &__header {
+    width: 100%;
+    padding: 6px 0 15px 0;
+    text-align: center;
+    font-size: 17px;
+  }
+  &__item {
+    text-align: center;
+    flex-shrink: 0;
+    width: 100%;
+    font-size: 23px;
+    height: 50px;
+    cursor: pointer;
+    transition: $transition-all;
+    &:hover {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+        0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+  }
+  &__closer {
+    position: absolute;
+    height: 35px;
+    padding: 0 4px;
+    cursor: pointer;
+    font-size: 21px;
+    width: 35px;
+    background-color: #325ce6;
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 0 50px;
+  }
+}
