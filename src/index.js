@@ -52,12 +52,31 @@ $('.navbar__item').click(function () {
   });
 }
 
-$(".navbar__item[data-label='gallery']").click(async function () {
+const addImagesToDom = async () => {
+  const imageContainer = $('.gallery__container');
+  $('.main').append(`<i class='bx-flashing loading'>در حال بارگذاری ...</i>`);
+
   const result = await randomDogs();
   const images = result.message;
   for (let image of images) {
-    $('.gallery__container').append(
-      `<img src="${image}" class="js-gallery__image"/>`
+    imageContainer.append(
+      `<img src="${image}" class="gallery__container__image"/>`
     );
   }
+  setTimeout(() => {
+    $('.loading').remove();
+  }, 2000);
+};
+
+$(".navbar__item[data-label='gallery']").click(function () {
+  addImagesToDom();
+});
+
+$('.gallery__container').scroll(function () {
+  const imageContainer = this;
+  const distanceFromTop = Math.floor(imageContainer.scrollTop);
+  const totalContainerHeight = imageContainer.scrollHeight;
+  const viewHeight = imageContainer.clientHeight;
+
+  if (distanceFromTop === totalContainerHeight - viewHeight) addImagesToDom();
 });

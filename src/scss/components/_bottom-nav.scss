@@ -1,6 +1,7 @@
 .bottom-nav {
   $b-nav-selector: &;
   position: fixed;
+  background-color: $white;
   width: 100%;
   justify-content: space-between;
   display: flex;
