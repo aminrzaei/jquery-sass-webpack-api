@@ -3,6 +3,7 @@ import sass from './scss/style.scss';
 import { digiSuggest } from './API/digikala';
 import { randomDogs } from './API/dogs';
 
+// Handle underline Navbar movment
 $('.navbar__heading').hover(
   function (e) {
     const heading = e.target.closest('.navbar__heading');
@@ -19,6 +20,7 @@ $('.navbar__heading').hover(
   }
 );
 
+// Open & close contant me
 $('.bottom-nav__icon , .bottom-nav__contact-me').click(function (e) {
   $('.drawer').addClass('drawer--open');
 });
@@ -26,6 +28,7 @@ $('.drawer__closer').click(function (e) {
   $('.drawer').removeClass('drawer--open');
 });
 
+// showing spesefic content acording to tab element clicked
 $('.navbar__item').click(function () {
   const label = $(this).data('label');
   $('.navbar__item').not(this).css('color', 'initial');
@@ -34,11 +37,13 @@ $('.navbar__item').click(function () {
   $(`.js-${label}`).css('display', 'flex');
 });
 
-{
+// Handle digikala serach
+(() => {
   let lagger = null;
 
   $('.bottom-nav__input').on('change paste keyup', function () {
     clearTimeout(lagger);
+    // Use debounce ffunctionality to avoid extra requests
     lagger = setTimeout(async () => {
       const result = await digiSuggest($(this).val());
       const searches = result.data.search_result;
@@ -50,8 +55,21 @@ $('.navbar__item').click(function () {
       }
     }, 500);
   });
-}
+})();
 
+// Handle load images by click on nav item with label gallery
+(() => {
+  let gallaryNavClicked = false;
+  $(".navbar__item[data-label='gallery']").click(function () {
+    if (!gallaryNavClicked) {
+      addImagesToDom();
+      gallaryNavClicked = true;
+    }
+    return;
+  });
+})();
+
+// Add image to dom after fetching
 const addImagesToDom = async () => {
   const imageContainer = $('.gallery__container');
   $('.main').append(`<i class='bx-flashing loading'>در حال بارگذاری ...</i>`);
@@ -66,17 +84,25 @@ const addImagesToDom = async () => {
   setTimeout(() => {
     $('.loading').remove();
   }, 2000);
+  // Add intersection observer
+  intersectionDetector();
 };
 
-$(".navbar__item[data-label='gallery']").click(function () {
-  addImagesToDom();
-});
+// Detecting intesection with last image
+const intersectionDetector = () => {
+  let observerConfig = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0,
+  };
 
-$('.gallery__container').scroll(function () {
-  const imageContainer = this;
-  const distanceFromTop = Math.floor(imageContainer.scrollTop);
-  const totalContainerHeight = imageContainer.scrollHeight;
-  const viewHeight = imageContainer.clientHeight;
-
-  if (distanceFromTop === totalContainerHeight - viewHeight) addImagesToDom();
-});
+  const observerFn = (entries, observer) => {
+    if (entries[0].isIntersecting) {
+      addImagesToDom();
+      observer.disconnect();
+    }
+  };
+  let observer = new IntersectionObserver(observerFn, observerConfig);
+  let imgs = document.querySelectorAll('.gallery__container__image');
+  observer.observe(imgs[imgs.length - 1]);
+};
