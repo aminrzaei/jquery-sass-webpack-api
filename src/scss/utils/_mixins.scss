@@ -1,0 +1,19 @@
+@mixin text-input {
+  font-family: $font;
+  font-size: 11px;
+  transition: $transition-all;
+  width: 60%;
+  border-bottom: 1px solid $slow-gray;
+  &:focus {
+    border-bottom-color: $purple;
+  }
+}
+
+@mixin btn {
+  width: 100%;
+  font-size: 12px;
+  font-family: $font;
+  height: 100%;
+  cursor: pointer;
+  color: $white;
+}

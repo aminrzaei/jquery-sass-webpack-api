@@ -1,0 +1,42 @@
+.notification-container {
+  position: absolute;
+  height: auto;
+  width: 240px;
+  padding: 5px;
+  top: 10px;
+  left: 10px;
+}
+.notification {
+  color: $white;
+  height: 110px;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: $box-shadow-low;
+  &__title {
+    height: 30%;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: $white;
+      width: 100%;
+    }
+  }
+  &__msg {
+    height: 70%;
+    width: 100%;
+    font-size: 12px;
+    margin: 9px 8px;
+  }
+  &--error {
+    background-color: $error;
+  }
+  &--success {
+    background-color: $success;
+  }
+}

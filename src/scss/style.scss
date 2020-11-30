@@ -1,7 +1,12 @@
-@import './base/reset';
 @import './utils/variables';
+@import './base/reset';
+@import './utils/mixins';
+
 @import './components/header';
 @import './components/bottom-nav';
 @import './components/container';
 @import './components/drawer';
 @import './components/loading';
+@import './components/form-container';
+@import './components/gallery-container';
+@import './components/notification';

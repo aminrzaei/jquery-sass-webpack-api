@@ -105,3 +105,96 @@ const intersectionDetector = () => {
   let imgs = document.querySelectorAll('.gallery__container__image');
   observer.observe(imgs[imgs.length - 1]);
 };
+
+$(".navbar__item[data-label='form']").click(function () {
+  $(".form-section__input[name='firstname']").focus();
+});
+
+$('.form-section__input').change(function (e) {
+  const inputName = e.target.attributes.name.value;
+  const inputValue = e.target.value;
+  formValidation(inputName, inputValue);
+});
+
+$('.form-submit').click(() => {
+  let error = false;
+  let data = {};
+  $('.form-section__input').each(function (idx) {
+    const name = $(this).attr('name');
+    const value = $(this).val();
+    data = { ...data, ...{ [name]: value } };
+    error = formValidation(name, value);
+  });
+  if (!error) {
+    $.post('./form', {
+      data,
+    });
+    notification('موفقیت آمیز', 'اطلاعات با موفقیت ارسال نشد :)', 'success');
+  }
+});
+
+const formValidation = (inputName, inputValue) => {
+  switch (inputName) {
+    case 'firstname':
+      if (inputValue.trim() === '') {
+        notification('مشکل در نام', 'لطفا نام خود را وارد کنید', 'error');
+        return true;
+      }
+      return false;
+    case 'lastname':
+      if (inputValue.trim() === '') {
+        notification(
+          'مشکل در نام خانوادگی',
+          'لطفا نام خانوادگی خود را وارد کنید',
+          'error'
+        );
+        return true;
+      }
+      return false;
+    case 'email':
+      const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+      if (!inputValue.match(emailRegex)) {
+        notification('مشکل در ایمیل', 'ایمیل نامعتبر است', 'error');
+        return true;
+      }
+      return false;
+    case 'username':
+      if (inputValue.trim() === '') {
+        notification(
+          'مشکل در نام کاربری',
+          'لطفا نام کاربری خود را وارد کنید',
+          'error'
+        );
+        return true;
+      }
+      if (inputValue.length <= 4) {
+        notification(
+          'مشکل در نام کاربری',
+          'نام کاربری حداقل باید 5 کارکتر باشد',
+          'error'
+        );
+        return true;
+      }
+      return false;
+    case 'address':
+      if (inputValue.trim() === '') {
+        notification('مشکل درآدرس', 'لطفا آدرس خود را وارد کنید', 'error');
+        return true;
+      }
+      return false;
+  }
+};
+
+const notification = (title, msg, type) => {
+  $('.notification-container').append(
+    `<div class="notification notification--${type}">
+      <div class="notification__title">${title}</div>
+      <div class="notification__msg">${msg}</div>
+    </div>`
+  );
+  $('.notification').each(function (idx) {
+    setTimeout(() => {
+      $(this).remove();
+    }, (idx + 1) * 2500);
+  });
+};

@@ -11,6 +11,7 @@
     <title>Project</title>
   </head>
   <body>
+    <div class="notification-container"></div>
     <div class="main">
       <div class="header">
         <ul class="navbar">
@@ -35,22 +36,16 @@
               <span class="navbar__heading-title">گالری نامحدود</span>
             </div>
           </li>
-          <li class="navbar__item" data-label="scroll">
-            <div class="navbar__heading">
-              <i class="bx bx-move-vertical navbar__icon"></i>
-              <span class="navbar__heading-title">SVG Scroll</span>
-            </div>
-          </li>
           <li class="navbar__item" data-label="form">
             <div class="navbar__heading">
               <i class="bx bx-spreadsheet navbar__icon"></i>
               <span class="navbar__heading-title">فرم</span>
             </div>
           </li>
-          <li class="navbar__item" data-label="filter">
+          <li class="navbar__item" data-label="sort">
             <div class="navbar__heading">
-              <i class="bx bx-filter navbar__icon"></i>
-              <span class="navbar__heading-title">فیلتر</span>
+              <i class="bx bx-sort navbar__icon"></i>
+              <span class="navbar__heading-title">مرتب سازی</span>
             </div>
           </li>
           <li class="navbar__item" data-label="table">
@@ -74,9 +69,69 @@
         <div class="container__item js-gallery">
           <div class="gallery__container"></div>
         </div>
-        <div class="container__item js-scroll">Scroll</div>
-        <div class="container__item js-form">Form</div>
-        <div class="container__item js-filter">Filter</div>
+        <div class="container__item js-form">
+          <div class="form-container">
+            <div class="form-section">
+              <div class="form-section__header">اطلاعات شخصی</div>
+              <div class="form-section__body">
+                <div class="form-section__block">
+                  <label for="firstname">نام</label>
+                  <input
+                    autocomplete="off"
+                    name="firstname"
+                    class="form-section__input"
+                    placeholder="نام خود را وارد کنید"
+                  />
+                </div>
+                <div class="form-section__block">
+                  <label for="lastname">نام خانوادگی</label>
+                  <input
+                    autocomplete="off"
+                    name="lastname"
+                    class="form-section__input"
+                    placeholder="نام خانوادگی کاربری خود را وارد کنید"
+                  />
+                </div>
+                <div class="form-section__block">
+                  <label for="email">ایمیل</label>
+                  <input
+                    autocomplete="off"
+                    name="email"
+                    class="form-section__input"
+                    placeholder="ایمیل خود را وارد کنید"
+                  />
+                </div>
+                <div class="form-section__block">
+                  <label for="username">نام کاربری</label>
+                  <input
+                    autocomplete="off"
+                    name="username"
+                    class="form-section__input"
+                    placeholder="نام کاربری خود را وارد کنید"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-section">
+              <div class="form-section__header">اطلاعات ارسالی</div>
+              <div class="form-section__body">
+                <div class="form-section__block">
+                  <label for="address">آدرس</label>
+                  <input
+                    autocomplete="off"
+                    name="address"
+                    class="form-section__input"
+                    placeholder="آدرس خود راانتخاب کنید"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-submit"">
+              <button class="form-submit__btn btn">ارسال اطلاعات</button>
+            </div>
+          </div>
+        </div>
+        <div class="container__item js-sort">Sort</div>
         <div class="container__item js-table">Table</div>
       </div>
       <div class="bottom-nav">
