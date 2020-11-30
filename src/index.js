@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import sass from './scss/style.scss';
 import { digiSuggest } from './API/digikala';
 import { randomDogs } from './API/dogs';
