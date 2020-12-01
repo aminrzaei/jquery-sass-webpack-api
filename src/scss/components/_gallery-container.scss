@@ -12,4 +12,5 @@
   &__image {
     height: 100%;
   }
+  @include scrollbar;
 }

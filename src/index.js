@@ -1,6 +1,8 @@
-import sass from './scss/style.scss';
+import './scss/style.scss';
+
 import { digiSuggest } from './API/digikala';
 import { randomDogs } from './API/dogs';
+import { countriesList } from './API/countries';
 
 // Handle underline Navbar movment
 $('.navbar__heading').hover(
@@ -196,5 +198,42 @@ const notification = (title, msg, type) => {
     setTimeout(() => {
       $(this).remove();
     }, (idx + 1) * 2500);
+  });
+};
+
+(async () => {
+  const countries = await countriesList();
+  addCountryToDom(countries);
+})();
+
+const addCountryToDom = (countries) => {
+  const sortBody = $('.sort__body');
+  countries.forEach((el, _) => {
+    sortBody.append(
+      `<div class="sort__item"><img height="50" class="sort__flag" data-src="${el.flag}"> ${el.name} ${el.capital} ${el.region} ${el.population}</div>`
+    );
+  });
+  filterIntersectionDetector();
+};
+
+const filterIntersectionDetector = () => {
+  let observerConfig = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0,
+  };
+
+  const observerFn = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const lazyImage = entry.target.children[0];
+        lazyImage.src = lazyImage.dataset.src;
+      }
+    });
+  };
+  let observer = new IntersectionObserver(observerFn, observerConfig);
+  let imgs = document.querySelectorAll('.sort__item');
+  imgs.forEach((el) => {
+    observer.observe(el);
   });
 };
