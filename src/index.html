@@ -127,8 +127,43 @@
         </div>
         <div class="container__item js-sort">
           <div class="sort__container">
-            <div class="sort__filter-container">Filters</div>
+            <div class="sort__filter-container">
+              <div class="sort__sort-by">
+                <div class="sort__select-sort">
+                  Sort by <i class="bx bx-caret-down sort__down-icon"></i>
+                  <div class="sort__select-box">
+                    <ul>
+                      <li class="sort__select-item" data-sort="population-asc">Population Asc</li>
+                      <li class="sort__select-item" data-sort="population-desc">Population Desc</li>
+                      <li class="sort__select-item" data-sort="name-asc">Name Acs</li>
+                      <li class="sort__select-item" data-sort="name-desc">Name Desc</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="sort__select-continent">
+                <div class="continent__title">Continent: </div>
+                <div class="continent__item" data-continent="All">All</div>
+                <div class="continent__item" data-continent="Asia">Asia</div>
+                <div class="continent__item" data-continent="Europe">Europe</div>
+                <div class="continent__item" data-continent="Africa">Africa</div>
+                <div class="continent__item" data-continent="Americas">Americas</div>
+                <div class="continent__item" data-continent="Oceania">Oceania</div>
+                <div class="continent__item" data-continent="Polar">Polar</div>
+              </div>
+              <div class="sort__search">
+                <input class="sort__input" placeholder="iran, german, ..."/>
+                <i class="bx bx-search sort__search-icon"></i>
+              </div>
+            </div>
             <div class="sort__body">
+              <div class="sort__title">
+                <div class="sort__country-flag">Flag</div>
+                <div class="sort__country-name">Name</div>
+                <div class="sort__country-capital">Capital</div>
+                <div class="sort__country-region">Continent</div>
+                <div class="sort__country-population">Population</div>
+              </div>
             </div>
           </div>
         </div>

@@ -210,7 +210,15 @@ const addCountryToDom = (countries) => {
   const sortBody = $('.sort__body');
   countries.forEach((el, _) => {
     sortBody.append(
-      `<div class="sort__item"><img height="50" class="sort__flag" data-src="${el.flag}"> ${el.name} ${el.capital} ${el.region} ${el.population}</div>`
+      `<div class="sort__item">
+        <img class="sort__country-flag" data-src="${el.flag}">
+        <div class="sort__country-name">${el.name}</div>
+        <div class="sort__country-capital">${el.capital}</div>
+        <div class="sort__country-region"><i class="bx bx-map sort__country-icon"></i> ${
+          el.region
+        }</div>
+        <div class="sort__country-population"><i class="bx bx-male sort__country-icon"></i> ${el.population.toLocaleString()}</div>
+      </div>`
     );
   });
   filterIntersectionDetector();
