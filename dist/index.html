@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="http://fonts.cdnfonts.com/css/iryekan" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Project</title>
+  </head>
+  <body>
+    <div class="notification-container"></div>
+    <div class="main">
+      <div class="header">
+        <ul class="navbar">
+          <div class="navbar__underline"></div>
+          <li class="navbar__item category" data-label="category">
+            <div class="navbar__heading">
+              <i class="bx bx-category navbar__icon"></i>
+              <span class="navbar__heading-title">دسته بندی</span>
+            </div>
+            <div class="category__container">
+              <ul class="category__list">
+                <li class="category__item">Webpack</li>
+                <li class="category__item">Javasct</li>
+                <li class="category__item">Sass</li>
+                <li class="category__item">BEM</li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar__item" data-label="gallery">
+            <div class="navbar__heading">
+              <i class="bx bx-images navbar__icon"></i>
+              <span class="navbar__heading-title">گالری نامحدود</span>
+            </div>
+          </li>
+          <li class="navbar__item" data-label="form">
+            <div class="navbar__heading">
+              <i class="bx bx-spreadsheet navbar__icon"></i>
+              <span class="navbar__heading-title">فرم</span>
+            </div>
+          </li>
+          <li class="navbar__item" data-label="sort">
+            <div class="navbar__heading">
+              <i class="bx bx-sort navbar__icon"></i>
+              <span class="navbar__heading-title">مرتب سازی</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="container__item js-category">
+          <span class="js-category__letter">e</span>
+          <span class="js-category__letter">m</span>
+          <span class="js-category__letter">o</span>
+          <span class="js-category__letter">c</span>
+          <span class="js-category__letter">l</span>
+          <span class="js-category__letter">e</span>
+          <span class="js-category__letter">W</span>
+        </div>
+        <div class="container__item js-gallery">
+          <div class="gallery__container"></div>
+        </div>
+        <div class="container__item js-form">
+          <div class="form-container">
+            <div class="form-section">
+              <div class="form-section__header">اطلاعات شخصی</div>
+              <div class="form-section__body">
+                <div class="form-section__block">
+                  <label for="firstname">نام</label>
+                  <input
+                    autocomplete="off"
+                    name="firstname"
+                    class="form-section__input"
+                    placeholder="نام خود را وارد کنید"
+                  />
+                </div>
+                <div class="form-section__block">
+                  <label for="lastname">نام خانوادگی</label>
+                  <input
+                    autocomplete="off"
+                    name="lastname"
+                    class="form-section__input"
+                    placeholder="نام خانوادگی کاربری خود را وارد کنید"
+                  />
+                </div>
+                <div class="form-section__block">
+                  <label for="email">ایمیل</label>
+                  <input
+                    autocomplete="off"
+                    name="email"
+                    class="form-section__input"
+                    placeholder="ایمیل خود را وارد کنید"
+                  />
+                </div>
+                <div class="form-section__block">
+                  <label for="username">نام کاربری</label>
+                  <input
+                    autocomplete="off"
+                    name="username"
+                    class="form-section__input"
+                    placeholder="نام کاربری خود را وارد کنید"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-section">
+              <div class="form-section__header">اطلاعات ارسالی</div>
+              <div class="form-section__body">
+                <div class="form-section__block">
+                  <label for="address">آدرس</label>
+                  <input
+                    autocomplete="off"
+                    name="address"
+                    class="form-section__input"
+                    placeholder="آدرس خود راانتخاب کنید"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-submit"">
+              <button class="form-submit__btn btn">ارسال اطلاعات</button>
+            </div>
+          </div>
+        </div>
+        <div class="container__item js-sort">
+          <div class="sort__container">
+            <div class="sort__filter-container">
+              <div class="sort__sort-by">
+                <div class="sort__select-sort">
+                  Sort by <i class="bx bx-caret-down sort__down-icon"></i>
+                  <div class="sort__select-box">
+                    <ul>
+                      <li class="sort__select-item" data-sort="population-asc">Population Asc</li>
+                      <li class="sort__select-item" data-sort="population-desc">Population Desc</li>
+                      <li class="sort__select-item" data-sort="name-asc">Name Acs</li>
+                      <li class="sort__select-item" data-sort="name-desc">Name Desc</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="sort__select-continent">
+                <div class="continent__title">Continent: </div>
+                <div class="continent__item" data-continent="All">All</div>
+                <div class="continent__item" data-continent="Asia">Asia</div>
+                <div class="continent__item" data-continent="Europe">Europe</div>
+                <div class="continent__item" data-continent="Africa">Africa</div>
+                <div class="continent__item" data-continent="Americas">Americas</div>
+                <div class="continent__item" data-continent="Oceania">Oceania</div>
+                <div class="continent__item" data-continent="Polar">Polar</div>
+              </div>
+              <div class="sort__search">
+                <input class="sort__input" placeholder="iran, german, ..."/>
+                <i class="bx bx-search sort__search-icon"></i>
+              </div>
+            </div>
+            <div class="sort__body">
+              <div class="sort__title">
+                <div class="sort__country-idx">Index</div>
+                <div class="sort__country-flag">Flag</div>
+                <div class="sort__country-name">Name</div>
+                <div class="sort__country-capital">Capital</div>
+                <div class="sort__country-region">Continent</div>
+                <div class="sort__country-population">Population</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <div class="bottom-nav__contact">
+          <i class="bx bx-menu-alt-right bottom-nav__icon"></i>
+          <p class="bottom-nav__contact-me">ارتباط با من</p>
+        </div>
+        <div class="bottom-nav__digikala-search">
+          <input
+            class="bottom-nav__input"
+            type="text"
+            placeholder="جستجو در دیجیکالا ..."
+          />
+          <i class="bx bx-search bottom-nav__search-icon"></i>
+          <div class="bottom-nav__search-result"></div>
+        </div>
+      </div>
+    </div>
+    <div class="drawer">
+      <div class="drawer__header">شبکه های اجتماعی من:</div>
+      <div class="drawer__closer"><i class="bx bx-menu-alt-right"></i></div>
+      <div class="drawer__item">Instagram <i class="bx bxl-instagram"></i></div>
+      <div class="drawer__item">Telegram <i class="bx bxl-telegram"></i></div>
+      <div class="drawer__item">Twitter <i class="bx bxl-twitter"></i></div>
+    </div>
+  <script src="bundle.js"></script></body>
+</html>
