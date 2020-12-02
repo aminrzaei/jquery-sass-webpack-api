@@ -3,6 +3,8 @@ import './scss/style.scss';
 import { digiSuggest } from './API/digikala';
 import { randomDogs } from './API/dogs';
 import { countriesList } from './API/countries';
+import { result } from 'lodash';
+import { weather } from './API/weather';
 
 // Handle underline Navbar movment
 $('.navbar__heading').hover(
@@ -203,14 +205,81 @@ const notification = (title, msg, type) => {
 
 (async () => {
   const countries = await countriesList();
+  let modifiedCountries = countries;
   addCountryToDom(countries);
+  // Search
+  $('.sort__input').keyup(function (e) {
+    const searchInputValue = e.target.value.trim();
+    const searchResult = searchCountry(modifiedCountries, searchInputValue);
+    addCountryToDom(searchResult);
+  });
+
+  // Select continent
+  $('.continent__item').click(function () {
+    $('.sort__input').val('');
+    $('.continent__item').removeClass('continent__item--active');
+    $(this).addClass('continent__item--active');
+    const continentName = $(this).data('continent');
+    const continentSelectResult = filterCountries(countries, continentName);
+    modifiedCountries = continentSelectResult;
+    addCountryToDom(continentSelectResult);
+  });
+
+  // Sort counries
+  $('.sort__select-item').click(function () {
+    $('.sort__input').val('');
+    $('.sort__input').removeClass('sort__input--active');
+    $(this).addClass('sort__input--active');
+    const sortType = $(this).data('sort');
+    const sortResult = sortCountries(countries, sortType);
+    modifiedCountries = sortResult;
+    addCountryToDom(sortResult);
+  });
 })();
+
+const filterCountries = (countries, filterType) => {
+  /**
+   * @param {string} filterType
+   **/
+  if (filterType === 'All') {
+    return countries;
+  }
+  const result = countries.filter((country) => country.region === filterType);
+  return result;
+};
+
+const sortCountries = (countries, orderType) => {
+  /**
+   * @param {string} orderType
+   **/
+  switch (orderType) {
+    case 'population-asc':
+      return countries.sort((a, b) => b.population - a.population);
+    case 'population-desc':
+      return countries.sort((a, b) => a.population - b.population);
+    case 'name-asc':
+      console.log('name-asc');
+    case 'name-desc':
+      console.log('name-desc');
+  }
+
+  return result;
+};
+
+const searchCountry = (countries, q) => {
+  const result = countries.filter((country) =>
+    country.name.toLowerCase().includes(q)
+  );
+  return result;
+};
 
 const addCountryToDom = (countries) => {
   const sortBody = $('.sort__body');
-  countries.forEach((el, _) => {
+  $('.sort__item').remove();
+  countries.forEach((el, idx) => {
     sortBody.append(
       `<div class="sort__item">
+        <div class="sort__country-idx">${idx + 1}.</div>
         <img class="sort__country-flag" data-src="${el.flag}">
         <div class="sort__country-name">${el.name}</div>
         <div class="sort__country-capital">${el.capital}</div>
@@ -234,7 +303,7 @@ const filterIntersectionDetector = () => {
   const observerFn = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const lazyImage = entry.target.children[0];
+        const lazyImage = entry.target.children[1];
         lazyImage.src = lazyImage.dataset.src;
       }
     });
@@ -245,3 +314,11 @@ const filterIntersectionDetector = () => {
     observer.observe(el);
   });
 };
+
+(async () => {
+  const weatherResult = await weather();
+  const feelsTempreture = weatherResult.current.feels_like;
+  $('.main').append(
+    `<div class="weather"><i class="bx bx-sun weather__icon"></i> دمای قابل حس: °${feelsTempreture} سانتی گراد</div>`
+  );
+})();

@@ -59,6 +59,10 @@
     box-shadow: $box-shadow-around;
     background-color: $white;
   }
+  &__country-idx {
+    width: 25px;
+    padding-left: 6px;
+  }
   &__country-flag {
     border-radius: 5px;
     height: 100%;
@@ -122,6 +126,10 @@
     border-radius: 5px;
     transition: $transition-all;
     &:hover {
+      background-color: $white;
+      color: $medium-dark;
+    }
+    &--active {
       background-color: $white;
       color: $medium-dark;
     }
